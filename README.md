@@ -91,6 +91,10 @@ http://devtesting.jp/tddbc/?TDDBC%E5%A4%A7%E9%98%AA3.0%2F%E8%AA%B2%E9%A1%8C
 # 命名の参考
 http://devtesting.jp/tddbc/?TDDBC%E4%BB%99%E5%8F%B002%2F%E8%AA%B2%E9%A1%8C%E7%94%A8%E8%AA%9E%E9%9B%86
 
+# 参考ページ
+https://blog.jnito.com/entry/2013/05/22/073525
+https://github.com/o-t-k-t/vending_machine
+
 # クラス図等
 https://docs.google.com/spreadsheets/d/1n0qJWqqKDw8shy2JHJ6mGrPqS8gH-pM14S8t2xBzK6U/edit#gid=0
 
