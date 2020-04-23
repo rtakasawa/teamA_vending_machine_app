@@ -1,4 +1,6 @@
-require './lib/drink.rb'
+# require '../lib/tk_vending_machine.rb'
+
+require '../lib/drink.rb'
 
 class VendingMachine
   AVAILABLE_MONEY = [10, 50, 100, 500, 1000].freeze
