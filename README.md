@@ -1,102 +1,28 @@
-# 開発体制
-leader  : 高澤
-observer: 佐藤  
-driver  : 月野木 
-
-# 開発手順
-リポジトリのクローン(初回のみ)
-```
-git clone https://github.com/rtakasawa/teamA_vending_machine_app.git
-```
-
-## コミットメッセージのルール
-※出来るだけ意識しとく
-```
-git commit -m 'Add コミットメッセージ  #issue番号'
-# 機能追加       : Add
-# 修正          : Fix
-# リファクタリング: Refactor
-# 削除          : Remove
-例) 計算機能を追加の場合
-    git commit -m 'Add 計算機能の追加 #1'
-```
-## GitHub Flow
-各メンバーはdevelopブランチからトピックブランチを作成し、
-機能作成が完了次第、PullRequestを行う。
-
-リーダーは内容を確認し、問題がなければdevelopoブランチにmergeする。
-
-developブランチにて動作確認を行い問題がなければmasterブランチにmergeする。
-
-### developブランチをpull
-```
-git pull origin develop
-```
-
-
-### トピックブランチを作成
-```
-git checkout -b ○○
-```
-
-### トピックブランチが完成した場合、Githubにプッシュ
-```
-git add .
-git commit -m 'Add コミットメッセージ  #issue番号'
-git push origin トピックブランチ名
-```
-
-### トピックブランチからdevelopブランチへのPullRequestを行う
-
-### 
-# 開発環境
-`Ruby: 2.6.5`
-
-###  インストール方法
-指定したRubyのバージョンのインストールコマンド
-```
-rbenv install 2.6.5
-```
-
-インストールしたRubyを使用可能な状態にするコマンド
-```
-rbenv rehash
-```
-
-Rubyバージョン切り替えコマンド
-```
-rbenv global 2.6.5
-```
-
-バージョン確認コマンド
-```
-ruby -v
-```
-
-# 機能一覧
-・お金の投入機能（複数可）  
-・投入金額の総計機能  
-・払い戻し機能  
-・扱えないお金の払い戻し機能  
-・購入機能  
-・購入後の釣り銭表示機能  
-・商品管理機能  
-・売上管理機能  
-・在庫管理機能  
-・購入可能リスト表示機能  
-
-# 課題URL
+##課題
 http://devtesting.jp/tddbc/?TDDBC%E5%A4%A7%E9%98%AA3.0%2F%E8%AA%B2%E9%A1%8C
 
-# 命名の参考
-http://devtesting.jp/tddbc/?TDDBC%E4%BB%99%E5%8F%B002%2F%E8%AA%B2%E9%A1%8C%E7%94%A8%E8%AA%9E%E9%9B%86
-
-# 参考ページ
-https://blog.jnito.com/entry/2013/05/22/073525
-https://github.com/o-t-k-t/vending_machine
-
-# クラス図等
-https://docs.google.com/spreadsheets/d/1n0qJWqqKDw8shy2JHJ6mGrPqS8gH-pM14S8t2xBzK6U/edit#gid=0
-
-# フローチャート
-https://app.diagrams.net/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=%E8%87%AA%E5%8B%95%E8%B2%A9%E5%A3%B2%E6%A9%9F#R%3Cmxfile%3E%3Cdiagram%20id%3D%22czeWtQhEwh32sQ6ECbp5%22%20name%3D%22Page-1%22%3E7V1Zc6JKFP41PGaKrVkexaiZVGa5Se5MnJcpFKIkKg5i1Pn1t5tN6D4gKiBJ3TtVt5pmCZztO1u3nNSdbweeuZx%2BcS17xom8teWka04UdVnB%2FycTu3ACKSicmHiOFU4J%2B4kH568dTfLR7Nqx7FXmQt91Z76zzE6O3cXCHvuZOdPz3E32smd3lv2rS3NiMxMPY3PGzv50LH8azmqiup%2B%2FsZ3JNP7LgqKHZ%2BZmfHH0Jaupabmb1JTU46Su57p%2BOJpvu%2FaM0C6mS3hfP%2Bds8mKevfDL3ND9aS0Xb0%2BL29dXXZj8HTyrg89XQvQdb%2BZsHX0x19M5XeE0g%2BshrqOSQfj%2B%2Fi4miueuF5ZNnitwkrGZOr79sDTH5OwGSwGem%2FrzWXSafc%2Fo1d9sz7e3qanovQe2O7d9b4cvic6KUnTLLqZyRNPNniXJ3DTFDimaMyMpmCSP3hMKDyJaHUE3cj9NN5pKtoUlKTp0PX%2FqTtyFOevtZ409HXl8tL%2FmznWXEfVebN%2FfRWphrn23JG1X7tob20UfEFGGvGQhCzx7ZvrOW1YdIHpGt353Hfwue9bpWdYhDWUf4ZvexPajuyiuJK9xBqN4UMA7EmfggcRpAmf0uR4WczypRzOdHrmGnNK4HlaFDqf3CpSAv4gSIBGxSiACSiDXpgTovSuBFCFKIINFF8pVa8t5hJcAoUac3uU6GhkYHa5jxLLcjwZaKO8iEedI8HvRQI8Fnxj9Pmd0Ob3PyvvUnY%2FWq2ZkXcyxGmlZlwFZVyqQdXWn3lx%2FefC2%2Fa45vhuuzduNcdUme09J4YmyL9di7wWNz3BOpSG4bnsvw6qBOE0JBoGcZ8y8ymGMIpiA5f96rzWiMsMkNUYeHk3IKIYCRJ6DBbKDoNtlzjCCUzJBj0TXWqNZQlazFEizFECz9NpQRGM49tVlaIQ%2Fz88Sw5w5kwUejzExbA9PECI42HPvRCfmjmWFamevnL%2FmKHgUUbwlEb7gM5DBoWvyLKxpq1DpKqKzpCgHLZgEkFmsjcw6Q%2BYhDqzeO51FmZJnxNIZAora6CwBDieDFAurQ2JTfLRwF3aW3pgW3u4pfTAk9PyE4sPrbUTf8GgXHeUS87B3I5X0blI0RQBN47kzIUSmwF8RqJAhxDYGQtgH0bKhNxt7SIDTQGLqJPYIfTEMJhqBkWim%2B%2B51UkJZ26cAkQoEMfXpJBColGFEONDxNRqBd%2BJcq1xHJv71paNBmcZxlaWx3mRGRGJhvMjujWfmauWMc0xfytoNM8auatMXS0ZrTB%2BlOSebPnRZ0ycDEepxKLh1%2FKfUOIWB%2BGgvB%2BTgoBiUDIZaIwYSlTRT5VPFgILSpqMxuUyG6IBRyOVqS5jF0FisiFkarfx1M0thmPUhAjGKPbzMAGWjgZgMlVwKMgthHuGa%2BCCGwhnS%2B%2BeInAU5VWJdF61RjgCuS5S1idM32OnL%2BIl94jzuMzvhqaR8wO%2Fzqpf2E2nxT4zKxaoG8gdNREhU4hNwyOtKRKDRvaU%2F9qTNcPwy15yX0fR2e9Wm4syxGWvwg5opUAp8fbALfhYAB%2F%2FzCfCOqIBXp92smtkksGwqVQ8IEUGFygkJxAR3RYCSqs%2BR0h0ip4x4Ro%2FvqrV0xxg9QA5KFxi0sgUGrS5DKMJ4w%2FCjBQh0HuVjPybWEFW8LAKxOYB2xBNnUVlS5Kx86wpD5briCZDKhc5rnmXpBSlNjSQ8SUqzx%2BkqazWOd1XPk1%2FKg9L4kq5qFUV%2FkLSsp8pC86GUZpTH2ueuhqkzcB7rvDRohd0B2QRqvvRdKvVCt0Rp6MTUCw6LYNFryrk4rmhYQ%2FK8jNQcFIaL5uGSckfMQ0WrSBjqa1mEqQhXqzSFOJnEoktBJSpxNbP9Xmw6IsEBXdhXtPLc0YpzF2cBAu3yQ1BbGyC8vY1fXx5%2Bfvfu%2Bs7L9eZWeLjbgEFAAdY2nCg6E33z4uAmqP3a%2BfGr%2B8%2FPzg9r9GWp33d2mjosBb9tjYz5wdxfScOu%2FzbY3iyXSNEGQl2RsZI1fLJQW5En%2F6uO7LCOiutYBZIGORmySVRfdh%2B4K4mwWxoQCxQuSSqweAEq1VcREIN6xeJLSxKwZwZmIkXn5hKwIJnbWk47EyakrLFBEkPlusJfkMpl0qfvPkYrsruH2%2Ft4mKMN9TKoWfOn0KFV%2BfJ49kGIDvaqgzlQ0KAYrVQTGdM7tm8rSyOWWLzSriGXW6HBqkEncPb4ZH8ZfZ0q%2FXt%2Bq%2FZGxnbxAHoXpYMhMojL5nQK7JDjQZgWcA%2Bzl%2FyJk1bTXNbxyOaDBU1keanJ9TgeIC%2FFj%2Bl4qBJFZ6ExxwMk84fMu4tSVppFhZXmuhwPkMrAQqOP53gUmeS043FMuNuQ3yFQSEYvYCrrd0g0JNKdMdX5HSC12TDiZDk7vpm2OnlpjRzQLbCl%2FU%2BqPCXW1ycCUhFqGyzh28CeTE4OWFT%2BrN0kG8zHfmw4CL0uBVqwktyWm1bWcvzglrm%2FVP89BOXNur9VrKpoPcoUbk2Shpl3YF7o5OupMMOIVM3mRQACrQJJi1ZsWOZqmmwEcwhxGsWbMoIjXlRy6LzwycBEFz4bFhw2qostu0QPOn2B51NIEmIL2bonM0fqAzppr9N7nN5h1tSno%2Fss3iW1Nh1cv49Ixc2Qg30A%2BKD35ZgswR7JjsCtEhskPTuzWdeduV5wr2QhW7NkPL%2FyPffVTp3RxBFZVl4J0iE%2BW%2B6LQa0JoPtjPvzzNtw5ujJDw6ebb9dfn8S8PA8KCI75fp2Sol7UF9lRiDNBWKkwLHhv8S21X0C8driBNREgO4Cog6hPP0hzIVLR07uAIsAdBwnLtGAhRThAlWrNsza2x2NIa0YakhFfDZMo91BGl9aa46ofJUH7GEfxNNguErmSmzG1BbYVmrfldyegHlRf2f7p82D%2Br%2FpN%2FeOtNWvw%2B1G49RzI4FYhOnJadq74Tzz24wsjDXzw3fYc%2FDnEKAdztG4j8g%2FSbSX4ryBeSRrjKo1XCtu20vILEv6yXie9PxM6UXwVnhJftVnxhbzO8nWhMh5E%2B%2BEIUbVVJDdYrQO5ctKy%2F1yjAu6Ec0ilYRSrI%2FgsksuWZy0oKyDzp4IYlRSVaHOSYwWwBJi71GWRh537wgr9d7Kb3eJB%2BMRTTYzVuZf%2Ffu9eWb%2F%2BCK8vsqi%2FyCoYkqicgYLib5DBPNdqVGADFIqVgsA36JSCdANMc4ERqCFnmclYfhLL7Zx1rPYXNQintT9ftNqi%2FSodRZ6q%2FTX6ACAVj0ObykpjLSjBArnx9suZRItHWTlLnNRkD496UEalXjhuKMh9LxpGm0ClCvsOThR6sQGpL2zBa7nYU165TCfkS4u9QHtp5SrOR4s9ZcZlqQExPm5nqLIbhKl1NDUU7BzXFhljkkelZYzqqlV0atVczRB%2BXHcLKwYVclS%2B6FpWmqNaVRzV6qsHghytNCVdnr0HMeGyK5WprLFwatZYoFwhoWGXO3%2B3gaQhOr0AKywQxT1HpJsGqsoCu7PnbLtab%2Bm1oawdxcG4DtBEvM7fPk5%2B6%2F3F86%2FlwHHurcW3x6u8Va1SUHsPBka8Fy75QZRwUR2r1e%2Bt4koV8xBQAq9rl%2BL1nTteiY%2FjwWpjPj3%2FGt18Rp3T2CC%2FezbQqT0F%2BHGnuvgA%2FtQH9OMqzK8BRYYIpdb5FDSelPnBoWSnJxT8ics3Q1INaWqN27Hgw%2F0PoYVQtf81Oan3Hw%3D%3D%3C%2Fdiagram%3E%3Cdiagram%20id%3D%22s9Oq2QXPK2ysc1_rDYt1%22%20name%3D%22Page-2%22%3E7Vlbb5swGP01fuyEufNIKNke2qlSNK3dGw0eMBEcGefWXz8bm3AxbZo2pFU2qUo%2FH9%2FgHH%2BXOMAIFtuvJFqmtzhGOdC1eAuMa6DrnmmzTw7sBGBDUwAJyWIBwQaYZU9IgppEV1mMys5AinFOs2UXnOOiQHPawSJC8KY77DfOu7suowQpwGwe5Sr6M4tpKlBXdxr8G8qStN4Z2p7oWUT1YPkmZRrFeNOCjBAYAcGYCmuxDVDOuat5ccqb%2B23663b1YxaET3faerm7uhKLTY%2BZsn8Fggp62qV1sfQ6yleSL%2FmudFcTiGLGp2xiQlOc4CLKwwadELwqYsS30VirGXOD8ZKBkIF%2FEKU7eTiiFcUMSukil71iT75RT7MDLyzHlXhF5uiFccZeLXbKEV4gSnZsHkF5RLN1d9NInrdkP24%2F9Q5n7HF0TboGtOTBkJ4BDa27BI1Igqic1SjDjNZjNFCl1xHaGap2oQc8G7gTEFrAd7jRV7PRihO%2FSTOKZsuoYm%2FD%2FH9IlzUiFG3foIzKeB1UusTZsrlp%2FBPWTpe2fLPPb1uiDrnHMmkOMMkInIJJyI3JFHgBCA3gQuB5laFXJFeI63PaXQd4UCJ%2BWCEQTFw%2B3XWBbylCMEppl%2B0oz5KC2XNGLSIM4MRnLJL5smORxbFwOFRmT9FjtRR3uSU%2FYhUp1gRY13wt5mOlcLcxhXS7Qure64TUxxLS%2BifCmTNKODO0npjuecOZ%2FV%2B7k6Ui3Tqvdo6iHS%2F%2FAv4UAdSEKW32z8555HskzEq4VQVJm%2F%2FJ%2BOl0gy2sgi2LxgHwpmpGS%2FHicVV%2BXDZznykD2lHQHIiCff86WRR0FTW%2B48vMP7rpdLk3XYV745wJyFOof2Bffi6Se6jZ3ZgD1XM%2FdOxH477e%2FzRlnA68ajqrVVkBF7Iazq0MZfrzFbb2aSrsfT44VJn188bpxIFHiFPHf9%2BvxTFfUmkgoewHi3XMWi6%2FyjVT4ButzCK6vKrLARO%2FEflTaruPaP1C7ZC49mjivuYaoYh9fp3DWgUuUJcqRgfZ3XNav1iOVwMP7d7rrWRdtHbt1h0iGXsTHjgr8J1FnCiWDkYaVaCWANYLzvXuYs%2Fr6G%2F0CwlRhCrFnlrx9w6S0Q%2FNI1eNcOAG46hj8y6dP0o%2BA2onkq%2B%2FkHlm%2BQauTS5fPmiPJd%2BZv2%2FD11yWNPLN86gss%2FkFKNjPn29WsL%2BQCc%2Bs4MCVScgKGIvXM6HJKxnXVjT9FDfA0HmGuhHugFmz%2BZFGcN%2F80mWEfwE%3D%3C%2Fdiagram%3E%3Cdiagram%20id%3D%22JCgcFQtepu3T66_-Mcny%22%20name%3D%22Page-3%22%3E7Vttk6I4EP41%2BThXQAKEj%2BDLvdTt1e3Obd3MftliJKvcoVgYR51ffwkJAiE6jgo6zn2xkiYE7H66%2B0knANibrn%2FOwvnkUxqRBFhGtAawDyzLQw775YKNEDgmEoJxFkdCZJaC%2B%2FiFSKEhpcs4IovaQJqmCY3ndeEonc3IiNZkYZalq%2FqwH2lSf%2Bo8HJOG4H4UJk3p33FEJ0KKLbeU%2F0Li8aR4sul44so0LAbLf7KYhFG6qojgAMBelqZUtKbrHkm47gq9PNDNtzv3848Hd%2Fpl%2Btc3%2BPA5mN6JyYZvuWX7FzIyo%2Bed2hJTP4fJUuoLDDzgQxCwBgTYBMEQDFyAmdCTEn%2FAx%2FBLGAwcgH3gDeQlHOQNi48f2AAPgefKS55ZSJxijC8l7HHyWcU8PrOOk7D%2FGjxlrDXmreISzhsGb8uH%2Bvn7uMU8%2BczCYnRTwICSNZ9kQqcJE5isGSbxeMbaI6ZUkjHBM8lozIDjywvTOIr47UFGFvFL%2BJRPZbD%2BPI1nNIelHQC7z%2Bda0nQhoM%2Bnlkpl85G1gsJXTGhuccX8kaRTQrMNu0%2FOAiUSpStaSPZXJbAtQ8omFVAX94XSl8bbmUu8sIaEzBvgA5vwURVPIuaOsptmdJKO01mYDEppkKXLWUQiqdxyzO9pOpcK%2FYdQupGxheu6bknxTP6gI5TNXjZdZiOyZxzSGyUjSUjj5%2FpDdSqWt%2F7JYVMxJvRq1jRVK9EwGxMq71IMtX2N422HtK7PvJM7sc1dEAcNa5a24opfTWJK7udhrr0VSx86u5zfDSyMappzmm5gml26gf0h3MBpxw1Q3Zim160bOOfKgLtdxbgeV9kGmaqvWBpfQW35ivshfAWLcQK7e8Z5J%2FrUSabAGujbwOvlHMsGgQ%2F8LesaFmTLqrC3OmnzvAoLHIKgB7xh0ysm6fRpubigR7g74k3VI5DGI5y2PMLTmEEEFTsnyCwX25LhchLN4hBTcb80jIYp2%2Fxe7OSNfJjmdgSCIJ8Z8TC2Ned1G8%2BpG8%2FSGc%2FRGE9NKmczXsEzKtb7I20o7iZWH8hUCKtG%2BVCje6s13ZsN3T%2BSxW0q3%2FIU5GtIry5qtad8Temgkchnkc9LOKw3S2ekbgSmjWzzUO08ciX%2FZBfd%2FloqXfQ2sndi6n41JWO9HSp6tjV6LmQnsmGkZKeG%2FQTzaLDh5kQKXqDRLa02NaUBvqrc8upt%2FQfzzCQlvdt0XmTUI6elYeG6rNWe8%2BoW%2FwdYRzQ8NgZzGsF5ogt8xKniVS5%2FkMoXcFPxXpeVAvOQUkEZNUdJuFjEox2BsxIrH2uh8jKB09xRJ%2Bsqcio%2BdmzktI0LR05NReJtiXUd04dKu5JWWa8EB%2B%2BcCRuvrod3rHM7goZSYoL2sUlVyc4Q2t1C45DiySvR4yRLXwstgmqAPtaCSI0SbVuwWXO53eWiGke9Ru7tdrn4xkKLqIv0OdcJHBDA2zQT9Op5E2o2FXGXZiomrplpu9Eril5o5xZybQdaDDbK%2BuR1klRzR0y6WI3e%2BkiFFQzr%2BNcsETotrFiaJL%2FnoEO5I4X5egyLJdmAH7y4SrSr%2BkbmgWhvrf5uafZB3rwmk5y75NmPlSt6zn2hddxhXP2A9Z4A6qUoobqziVR8HEoJIVQmMrulhJaGlryLksClLA%2BREkFceKTllXUh6vjoAdTVSPdE%2BnfPdBqxX7d912nsh5p6HMufgZ1vdOeFTezsUeYFT0FBp07cHd0xqLaUmQznaxhOP7lP0ejf9WoV%2F%2Fb05U5D3D9yHi3c%2B9VEKkB4sXBaOGGBo6OrY0iZqL3CqRZ%2BzUVLJ%2FBrG0aVs%2BbvGh3K4WVHDUMto8P6PzjpdgDfWXCyzxWc7AODEwNEuKkMk3WKnS9sm%2FXnIMPY%2B16Oddp4G%2B8fjyxv33jWEP%2FwWF%2BbT%2BnX7%2F2xHb64X%2FF3f%2FGynv%2BqIwKcmELg%2BbIRFHvJ%2FAStOG5WfM4hP%2FAw%2BfG0msTiZ9mkJP%2B8hGFD7kkzylvc5bu7SfBNFKyUOKqr15rueQpWrFt%2B3iTAUX4jBgf%2FAQ%3D%3D%3C%2Fdiagram%3E%3Cdiagram%20id%3D%220WPtws7CgDfMb6pNycMO%22%20name%3D%22Page-4%22%3E5Vpbd5s4EP41enQOd8QjELzdS7PdzfYk7UsPMYrNFiOvkGO7v74SSFxlm1ycbJIXH2mQBjEz3zcjycAMl9tfSLxafMQJyoChJVtgngPD8CyH%2FXLBrhI4ulUJ5iRNKpHeCC7TH0gINSFdpwkqOgMpxhlNV13hDOc5mtGOLCYEb7rDbnHWfesqnqOB4HIWZ0PpVZrQRSWFhtvIP6B0vpBv1h2verKM5WDxJcUiTvCmJTIjYIYEY1q1ltsQZdx20i7umgSkuC2ij7uk2H29%2BudzZk4qZdP7TKk%2FgaCcPq1qo1J9F2drYS8Q2QA6ANog8gA0gQ%2FLhgs8nT8KfOAHIDIB1IEflYNd4DsgYgM0PrEyFd1J%2B1O0ZWsOFnSZMYHOmnGWznPWnrGvQYQJ7hChKfOYLx4s0yTh0wOCivRHfFOq0lh%2FhdOclvFgB8A%2B57rWFBdVzHHV4muYPrTtuf%2BI7fTaoQwICC8RJTs2T2gxTFjpESCwRUhsmojSNSFbtKJJhk4sgnhea24cxRrCV%2FfwGxz6rW94lDAciC4mdIHnOI%2BzqJEGBK%2FzBCXCuM2YPzBeCYP%2BiyjdCVBzW3c9Wb2Tv%2BgBxmaLxWsyQwfGOWqnEJTFNL3rvlRlYjH1Ew%2Bbxpmm9JRwpg57XqIxmSMqZvUcVS%2Fj4b5zFJjzgMcwF3A8%2BS5v9L3Z%2BIobfrNIKbpcxaX1Noy3VX45AQysruU8BQwMBQzsU8FA198FDkRGquLykD5N7b7RgHmUMzxlXKszh2xAvzWmkoSyYZQN4zAatP8PGmoeOQYH52RwMN8FHGRpeRwPxkviQS7zfoBoRf0QIoaT8WLqhrDWnLdANAVBWEJk%2BIjlEhMETKEFAnhMT%2FlSjw2GvOSDkFd0rMDzXLEMz3tlcDTGwtE9GRzt9wHHx6JsXJlm9f104jJNV%2B2N9iQtvhNyOW54wwM%2Bg0vUghTDXwA8u9wtQb5JEpDSXyu2zLHYeorKb3v139aibLVkMst%2F%2B5Z%2B%2B3o1nby5TPdn8fvfFwTtUruw7zZ3q3QSWBNFolNa47ny3KFFdnDicgz4Ic8mLAHxM4Qq0C0JGNhCjsdPG%2BC5gEedcXxlUnOAr%2FGUx14RWOWsSnM9yxGZiy2gPpR4pTCrKe%2FFYPbmMth%2B%2BIyAmfVMMDu0yDEw43uoquY7Lx85IDD7OPGmEgzennKwleh8Uw72ZRJzpSRsEp1CDyxXWFWTFi95XykUbdWR37NC0VL43%2BEOEYUFq%2FbtVl1SViE1PfruQZfKqFFuItjgxm%2F1hqWeZfFlMH9Co%2BHtfdscGDRBp66lqoKp91LvdcSIYz5jjChTsYIjBnSdJz6%2FVmG9HOecnpO4WNQniy2zoW1Kr1vtL9zaZ7bonW%2BF8cvOTnZy9hnX5UDLln0%2BUT%2FTHFcKmrllrzP5EyIpMwa%2FGCiFT8j9ow8TlLY11bHQ8rV9wNWP3Qx5vQJc74VQ9Z2DzdBAkdU%2FtDrdrmq%2FFQcXTgz8gTz346mqh%2F%2BROWv%2FeUfnaJFNnw74qG7UOdRp0dk9ctaI4%2FnbNMtCnGFSzjUTG8HEYvKCEvwdtZ5A48Z0nBMymNW%2FChnLYE9xhDnXwgsn%2FHWyXFnf%2F%2Fqc6x8u4LWE7UgGm2VxUaQzNW81XPWl9eQob2kabBOXduZYL8xbh8qBo7S150rgeWirPluTVZT5QNoyjd7OaOSdHQuUeNcaJm6QRx86uYZ2cF269bjxtmb0IFOt%2BKGcq8SUaudgl4e70%2FLm0W%2BVdZIZPSjJzu0TYlOpma0TLZszL8tSe29xJJsHUZdP9xWejLhD%2FpQ3qtp2uNEfKOxzxZv494EJ7W7y9%2BwBS9f%2Ft2mjuI%2B2ESzNus0%2FWqoAbP4WZEY%2FAQ%3D%3D%3C%2Fdiagram%3E%3C%2Fmxfile%3E
+##使い方
+````
+$ irb
+> require '../lib/vending_machine.rb'
+> machine = VendingMachine.new
+> machine.drink_stock Drink.water # =>"waterを1本追加しました"
+> machine.drink_table # => {:cola=>{:price=>120, :stock=>5}, :redbull=>{:price=>200, :stock=>5}, :water=>{:price=>100, :stock=>6}}
+> machine.insert 1 # => "1円は使えません"
+> machine.insert 100 # => 100
+> machine.insert 50 # => 50
+> machine.total # => 150
+> machine.refund # => "150円を払い戻し"
+> machine.total # => 0
+> machine.refund # => "払い戻すお金はありません"
+> machine.insert 1000 # => 1000
+> machine.total # => 1000
+> machine.purchasable_drink # => => [:cola, :redbull, :water]
+> machine.purchase(Drink.water) # => "購入した飲み物：water,購入金額：100円" => "900円を払い戻し"
+> machine.purchase(Drink.water) # => "購入できません"
+> machine.total # => 0
+> machine.sale_amount=> 100
+> machine.drink_table # => {:cola=>{:price=>120, :stock=>5}, :redbull=>{:price=>200, :stock=>5}, :water=>{:price=>100, :stock=>5}}
+> machine.purchasable_drink  # => []
+> exit
+````
