@@ -12,15 +12,16 @@ class VendingMachine
     @total = 0
     @sale_amount = 0
     @drink_table = {}
-    5.times { drink_stock(Drink.cola) }
-    5.times { drink_stock(Drink.redbull) }
-    5.times { drink_stock(Drink.water) }
+    5.times { drink_stock(Drink.new(:cola,120)) }
+    5.times { drink_stock(Drink.new(:redbull,200)) }
+    5.times { drink_stock(Drink.new(:water,100)) }
   end
 
   # 飲み物の補充
   def drink_stock(drink)
     unless @drink_table.has_key?(drink.name)
       @drink_table.store(drink.name,{price: drink.price,stock: 1})
+      "#{drink.name}を1本追加しました"
     else
       @drink_table[drink.name][:stock] += 1
       "#{drink.name}を1本追加しました"
@@ -53,24 +54,18 @@ class VendingMachine
     @drink_table.select{| drink, price_and_stock | price_and_stock[:price] <= @total && price_and_stock[:stock] > 0 }.keys
   end
 
-  def purchase_money_check(drink)
-    @total > @drink_table[drink.name][:price]
-  end
-
-  def purchase_stock_check(drink)
-    @drink_table[drink.name][:stock] > 0
-  end
-
   # 飲み物の購入
-  def purchase(drink)
-    if purchase_stock_check(drink) && purchase_money_check(drink)
-      @drink_table[drink.name][:stock] -= 1
-      @sale_amount += @drink_table[drink.name][:price]
-      @total -= @drink_table[drink.name][:price]
-      p "購入した飲み物：#{drink.name},購入金額：#{drink.price}円"
+  def purchase(drink_name)
+    if purchasable_drink.include?(drink_name)
+      @drink_table[drink_name][:stock] -= 1
+      @sale_amount += @drink_table[drink_name][:price]
+      @total -= @drink_table[drink_name][:price]
+      drink_price = @drink_table[drink_name][:price]
+      p "購入した飲み物：#{drink_name},購入金額：#{drink_price}円"
       refund
     else
       "購入できません"
     end
   end
+
 end
