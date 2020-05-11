@@ -43,5 +43,5 @@ $ irb
 > machine.purchase(:tea) # => "売り切れ＆お金が足りません"
 > machine.total # => 0
 > machine.drink_stock # => {:cola=>{:price=>120, :stock=>5}, :redbull=>{:price=>200, :stock=>5}, :water=>{:price=>100, :stock=>5}, :tea=>{:price=>500, :stock=>0}}
-> machine.purchasable_drink # => "購入できる飲み物はありません"
+> machine.purchasable_drink # => []
 ````

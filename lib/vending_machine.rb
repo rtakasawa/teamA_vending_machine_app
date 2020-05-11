@@ -1,4 +1,9 @@
-require '../lib/drink.rb'
+# rspecのとき
+# require 'drink'
+
+# 実装のとき
+require '../lib/drink'
+
 require "pry"
 
 class VendingMachine
@@ -53,18 +58,13 @@ class VendingMachine
 
   # 購入できる飲み物の名前を取得する
   def purchasable_drink
-    drink_name = @drink_stock.select{| drink, price_and_stock | price_and_stock[:price] <= @total && price_and_stock[:stock] > 0 }.keys
-    if drink_name == []
-      "購入できる飲み物はありません"
-    else
-      drink_name
-    end
+    @drink_stock.select{| drink, price_and_stock | price_and_stock[:price] <= @total && price_and_stock[:stock] > 0 }.keys
   end
 
   def purchase(drink_name)
-    return "そのような飲み物はありません" unless @drink_stock.include?(drink_name)
-    if purchasable_drink == "購入できる飲み物はありません"
-      if @drink_stock[drink_name][:stock] == 0 && @drink_stock[drink_name][:price] >= @total
+    return "そのような飲み物は存在しない" unless @drink_stock.include?(drink_name)
+    unless purchasable_drink.include?(drink_name)
+      if @drink_stock[drink_name][:stock] == 0 && @drink_stock[drink_name][:price] > @total
         return "売り切れ＆お金が足りません"
       elsif @drink_stock[drink_name][:stock] == 0
         return "売り切れです。"
