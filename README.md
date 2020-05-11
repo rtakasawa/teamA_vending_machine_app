@@ -13,15 +13,15 @@ $ irb
 > machine = VendingMachine.new
 
 # ドリンクを補充
-> machine.drink_stock(Drink.new(:tea,500)) # =>"teaを1本追加しました"
+> machine.drink_store(Drink.new(:tea,500)) # =>"teaを1本追加しました"
 
 # ドリンクの在庫確認
-> machine.drink_table # => {:cola=>{:price=>120, :stock=>6}, :redbull=>{:price=>200, :stock=>5}, :water=>{:price=>100, :stock=>5}, :tea=>{:price=>500, :stock=>1}}
+> machine.drink_stock # => {:cola=>{:price=>120, :stock=>5}, :redbull=>{:price=>200, :stock=>5}, :water=>{:price=>100, :stock=>5}, :tea=>{:price=>500, :stock=>1}}
 
 # お金の投入
 > machine.insert(1) # => "1円は使えません"
 > machine.insert(100) # => 100
-> machine.insert(50) # => 50
+> machine.insert(50) # => 150
 
 # 投入額の確認
 > machine.total # => 150
@@ -40,8 +40,8 @@ $ irb
 > machine.sale_amount # => 100
 
 # ドリンク購入後:ドリンクの購入→投入額→ドリンクの在庫→購入できるドリンクの情報
-> machine.purchase(:tea) # => "購入できません"
+> machine.purchase(:tea) # => "お金が足りません"
 > machine.total # => 0
-> machine.drink_table # => {:cola=>{:price=>120, :stock=>5}, :redbull=>{:price=>200, :stock=>5}, :water=>{:price=>100, :stock=>5}, :tea=>{:price=>500, :stock=>0}}
-> machine.purchasable_drink # => []
+> machine.drink_stock # => {:cola=>{:price=>120, :stock=>5}, :redbull=>{:price=>200, :stock=>5}, :water=>{:price=>100, :stock=>5}, :tea=>{:price=>500, :stock=>0}}
+> machine.purchasable_drink # => "購入できる飲み物はありません"
 ````
