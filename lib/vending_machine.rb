@@ -57,7 +57,7 @@ class VendingMachine
   def purchasable_drink
     # selectで条件に合うハッシュを取り出し、keysでキー（ドリンクネーム）を取り出し
     @drink_table.select{| drink, price_and_stock |
-      price_and_stock[:price] <= @total && price_and_stock[:stock] > 0 }.keys == []
+      price_and_stock[:price] <= @total && price_and_stock[:stock] > 0 }.keys
   end
 
   # 購入できる飲み物の名前を取得する2（メッセージあり）
@@ -83,6 +83,7 @@ class VendingMachine
 
   # 飲み物の購入２
   # 購入できない時のメッセージを分けてる
+  # どちらもない時のメッセージがない。メッソドで分ける必要あり。
   def purchase_two(drink_name)
     unless purchasable_drink.include?(drink_name)
       if @drink_table[drink_name][:stock] == 0
