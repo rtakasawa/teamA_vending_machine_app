@@ -53,15 +53,8 @@ class VendingMachine
     end
   end
 
-  # 購入できる飲み物の名前を取得する（実装確認済み）1
+  # 購入できる飲み物の名前を取得する
   def purchasable_drink
-    # selectで条件に合うハッシュを取り出し、keysでキー（ドリンクネーム）を取り出し
-    @drink_table.select{| drink, price_and_stock |
-      price_and_stock[:price] <= @total && price_and_stock[:stock] > 0 }.keys
-  end
-
-  # 購入できる飲み物の名前を取得する2（メッセージあり）
-  def purchasable_drink_two
     # selectで条件に合うハッシュを取り出し、keysでキー（ドリンクネーム）を取り出し
     drink_name = @drink_table.select{| drink, price_and_stock | price_and_stock[:price] <= @total && price_and_stock[:stock] > 0 }.keys
     if drink_name == []
@@ -71,33 +64,82 @@ class VendingMachine
     end
   end
 
-  # 飲み物の購入１
   def purchase(drink_name)
-    return "購入できません" unless purchasable_drink.include?(drink_name)
-    @drink_table[drink_name][:stock] -= 1
-    @sale_amount += @drink_table[drink_name][:price]
-    drink_price = @drink_table[drink_name][:price]
-    p "購入した飲み物：#{drink_name},購入金額：#{drink_price}円"
-    refund
-  end
-
-  # 飲み物の購入２
-  # 購入できない時のメッセージを分けてる
-  # どちらもない時のメッセージがない。メッソドで分ける必要あり。
-  def purchase_two(drink_name)
-    unless purchasable_drink.include?(drink_name)
-      if @drink_table[drink_name][:stock] == 0
-        return "売り切れです"
-      elsif @drink_table[drink_name][:price] <= @total
-        return "お金が足りません"
+    return "そのような飲み物はありません" unless @drink_table.include?(drink_name)
+    if purchasable_drink == "購入できる飲み物はありません"
+      if @drink_table[drink_name][:stock] == 0 && @drink_table[drink_name][:price] >= @total
+        return "売り切れ＆お金が足りません"
+      elsif @drink_table[drink_name][:stock] == 0
+        return "売り切れです。"
       else
-        return "そのような飲み物はありません"
+        return "お金が足りません"
       end
     end
     @drink_table[drink_name][:stock] -= 1
     @sale_amount += @drink_table[drink_name][:price]
-    drink_price = @drink_table[drink_name][:price]
-    p "購入した飲み物：#{drink_name},購入金額：#{drink_price}円"
+    @total -= @drink_table[drink_name][:price]
+    # drink_price = @drink_table[drink_name][:price]
+    p "購入した飲み物：#{drink_name},購入金額：#{@drink_table[drink_name][:price]}円"
     refund
   end
 end
+
+# # 購入できる飲み物の名前を取得する（実装確認済み）1
+# def purchasable_drink
+#   # selectで条件に合うハッシュを取り出し、keysでキー（ドリンクネーム）を取り出し
+#   @drink_table.select{| drink, price_and_stock |
+#     price_and_stock[:price] <= @total && price_and_stock[:stock] > 0 }.keys
+# end
+
+# # 飲み物の購入１
+# def purchase(drink_name)
+#   return "購入できません" unless purchasable_drink.include?(drink_name)
+#   @drink_table[drink_name][:stock] -= 1
+#   @sale_amount += @drink_table[drink_name][:price]
+#   @total -= @drink_table[drink_name][:price]
+#   drink_price = @drink_table[drink_name][:price]
+#   p "購入した飲み物：#{drink_name},購入金額：#{drink_price}円"
+#   refund
+# end
+#
+# # 飲み物の購入２
+# # 購入できない時のメッセージを分けてる
+# # どちらもない時のメッセージがない。メッソドで分ける必要あり。
+# def purchase_two(drink_name)
+#   unless purchasable_drink.include?(drink_name)
+#     if @drink_table[drink_name][:stock] == 0 && @drink_table[drink_name][:price] >= @total
+#       return "売り切れです。お金が足りません"
+#     elsif @drink_table[drink_name][:stock] == 0
+#       return "売り切れです。"
+#     elsif @drink_table[drink_name][:price] >= @total
+#       return "お金が足りません"
+#     else
+#       return "そのような飲み物はありません"
+#     end
+#   end
+#   @drink_table[drink_name][:stock] -= 1
+#   @sale_amount += @drink_table[drink_name][:price]
+#   drink_price = @drink_table[drink_name][:price]
+#   p "購入した飲み物：#{drink_name},購入金額：#{drink_price}円"
+#   refund
+# end
+#
+#   def purchase(drink_name)
+#     unless purchasable_drink.include?(drink_name)
+#       if @drink_table.include?(drink_name)
+#         return "そのような飲み物ないので、動作しない"
+#       elsif @drink_table[drink_name][:stock] == 0 && @drink_table[drink_name][:price] >= @total
+#         return "売り切れです。お金が足りません"
+#       elsif @drink_table[drink_name][:stock] == 0
+#         return "売り切れです。"
+#       else
+#         return "お金が足りません"
+#       end
+#     end
+#     @drink_table[drink_name][:stock] -= 1
+#     @sale_amount += @drink_table[drink_name][:price]
+#     @total -= @drink_table[drink_name][:price]
+#     # drink_price = @drink_table[drink_name][:price]
+#     p "購入した飲み物：#{drink_name},購入金額：#{@drink_table[drink_name][:price]}円"
+#     refund
+#   end
