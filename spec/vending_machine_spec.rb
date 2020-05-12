@@ -1,6 +1,5 @@
-require 'spec_helper'
+# require 'spec_helper'
 require 'vending_machine'
-# require 'drink'
 
 describe VendingMachine do
   before do

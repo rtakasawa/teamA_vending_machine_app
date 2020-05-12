@@ -100,4 +100,9 @@ RSpec.configure do |config|
 
   # 下記は田中さんのパクリ
   # Dir.glob(File.join(File.dirname(__FILE__), "../lib/**/*.rb")).each { |f| require f }
+  #
+  Dir[File.expand_path('../lib', __FILE__) << '/*.rb'].each do |file|
+    require file
+  end
 end
+

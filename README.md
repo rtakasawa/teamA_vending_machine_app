@@ -1,13 +1,21 @@
-##課題
-    http://devtesting.jp/tddbc/?TDDBC%E5%A4%A7%E9%98%AA3.0%2F%E8%AA%B2%E9%A1%8C
+## チームメンバー
 
-##使い方
+高澤、佐藤、月野木
+
+
+## 課題
+
+http://devtesting.jp/tddbc/?TDDBC%E5%A4%A7%E9%98%AA3.0%2F%E8%AA%B2%E9%A1%8C
+
+
+## 使い方
 
 ````
+# teamA_vending_machineディレクトリ上で実行
 $ irb
 
 # ファイルを読み込み
-> require '../lib/vending_machine.rb'
+> require './lib/vending_machine.rb'
 
 # 自動販売機の作成
 > machine = VendingMachine.new
@@ -45,3 +53,8 @@ $ irb
 > machine.drink_stock # => {:cola=>{:price=>120, :stock=>5}, :redbull=>{:price=>200, :stock=>5}, :water=>{:price=>100, :stock=>5}, :tea=>{:price=>500, :stock=>0}}
 > machine.purchasable_drink # => []
 ````
+
+
+## Rspecインストール時の参考資料
+
+https://qiita.com/luckypool/items/e3662170033347510c3c

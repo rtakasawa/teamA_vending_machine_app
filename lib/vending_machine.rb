@@ -1,9 +1,4 @@
-# rspecのとき
-# require 'drink'
-
-# 実装のとき
-require '../lib/drink'
-
+require './lib/drink.rb'
 require "pry"
 
 class VendingMachine
@@ -61,6 +56,7 @@ class VendingMachine
     @drink_stock.select{| drink, price_and_stock | price_and_stock[:price] <= @total && price_and_stock[:stock] > 0 }.keys
   end
 
+  # 飲み物の購入
   def purchase(drink_name)
     return "そのような飲み物は存在しない" unless @drink_stock.include?(drink_name)
     unless purchasable_drink.include?(drink_name)
