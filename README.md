@@ -18,7 +18,8 @@ $ irb
 > require './lib/vending_machine.rb'
 
 # 自動販売機の作成
-> machine = VendingMachine.new
+> machine = VendingMachine.new # => #<VendingMachine:0x00007fa1242829a0 @total=0, @sale_amount=0, @drink_stock={:cola=>{:price=>120, :stock=>5}, :redbull=>{:price=>200, :stock=>5}, :water=>{:price=>100, :stock=>5}}>
+
 
 # ドリンクを補充
 > machine.drink_store(Drink.new(:tea,500)) # =>"teaを1本追加しました"
@@ -52,6 +53,11 @@ $ irb
 > machine.total # => 0
 > machine.drink_stock # => {:cola=>{:price=>120, :stock=>5}, :redbull=>{:price=>200, :stock=>5}, :water=>{:price=>100, :stock=>5}, :tea=>{:price=>500, :stock=>0}}
 > machine.purchasable_drink # => []
+
+# ドリンクの値段を変える
+> machine.drink_stock # => {:cola=>{:price=>120, :stock=>5}, :redbull=>{:price=>200, :stock=>5}, :water=>{:price=>100, :stock=>5}, :tea=>{:price=>500, :stock=>0}}
+> machine.drink_store(Drink.new(:cola,200)) # =>"colaを1本追加しました"
+> machine.drink_stock # => {:cola=>{:price=>200, :stock=>6}, :redbull=>{:price=>200, :stock=>5}, :water=>{:price=>100, :stock=>5}, :tea=>{:price=>500, :stock=>0}}
 ````
 
 
