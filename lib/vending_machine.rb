@@ -42,7 +42,7 @@ class VendingMachine
 
   # お金の払い戻し
   def refund
-    if @total <= 0
+    if @total == 0
       "払い戻すお金はありません"
     else
       refund_money = @total
